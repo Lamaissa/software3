@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+ <head>
+    <meta charset="UTF-8">
+
+ </head>
+ <body>
+ {%extends 'events/base.html'%}
+ {% block content%}
+     <center>
+        <h2>Add Manager To Database</h2>
+         <br><br>
+         {% if submitted%}
+         You Are Manager
+         {%else%}
+           <form action="" method="POST">
+             {% csrf_token%}
+             {{form.as_p}}
+             <input type="submit" value="Submit" class="btn btn-secondary">
+           </form>
+         {%endif%}
+      </center>
+ {%endblock%}
+ </body>
+</html>

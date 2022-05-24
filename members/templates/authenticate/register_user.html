@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+
+</head>
+<body>
+{%extends 'events/base.html'%}
+{% block content%}
+{%if form.errors%}
+ <div class="alert alert-warning alert-dismissible fade show" role="alert">
+             There was an error with your form
+             <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+ </div>
+{%endif%}
+   <div class="shadow p-4 mb-5 bg-body rounded">
+       <center><h2>Register</h2></center>
+        <form action="{%url 'register_user'%}" method="POST">
+             {% csrf_token%}
+               {{form.as_p}}
+          <button type="submit" class="btn btn-secondary">Submit</button>
+        </form>
+   </div>
+{%endblock%}
+</body>
+</html>

@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+  <div class="container-fluid">
+    <a class="navbar-brand" href="{% url 'home'%}">Soft3</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+        <li class="nav-item">
+          <a class="nav-link active" aria-current="page" href="{%url 'home' '2022' 'August'%}">Calendar</a>
+        </li>
+        <a class="nav-link dropdown-toogle"href="#"id="navbarDropdown"role="button"
+           data-bs-toggle="dropdown"aria-expanded="false">Task</a>
+         <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+           <li class="nav-item">
+              <a class="dropdown-item " aria-current="page" href="{%url 'task-list'%}">All_Tasks</a>
+           </li>
+           <li class="nav-item">
+               <a class="dropdown-item " aria-current="page" href="{%url 'add-task'%}">Add Task</a>
+           </li>
+           <li><hr class="dropdown-divider"></li>
+           <li class="nav-item">
+              <a class="dropdown-item" aria-current="page" href="{%url 'task_text'%}">Task TextFile</a>
+           </li>
+           <li class="nav-item">
+              <a class="dropdown-item" aria-current="page" href="{%url 'task-pdf'%}">Task_pdf</a>
+           </li>
+          </ul>
+          <li class="nav-item">
+               <a class="nav-link active" aria-current="page" href="{%url 'add-manager'%}">Add Manager</a>
+          </li>
+
+
+
+
+
+
+          {%if user.is_authenticated%}
+            <li class="nav-item">
+               <a class="nav-link active" aria-current="page" href="{%url 'logout'%}">Logout</a>
+          </li>
+          {%else%}
+              <li class="nav-item">
+               <a class="nav-link active" aria-current="page" href="{%url 'register_user'%}">Register</a>
+          </li>
+            <li class="nav-item">
+               <a class="nav-link active" aria-current="page" href="{%url 'login'%}">Login</a>
+          </li>
+          {%endif%}
+        </li>
+      </ul>
+      <form class="d-flex" method=POST action="{% url 'search-task' %}">
+        {%csrf_token%}
+        <input class="form-control me-2" type="search" placeholder="Search Task" aria-label="Search" name="searched">
+        <button class="btn btn-outline-secondary" type="submit">Search</button>
+      </form>
+    </div>
+  </div>
+</nav>
+</body>
+</html>

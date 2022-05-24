@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+
+</head>
+<body>
+{%extends 'events/base.html'%}
+{% block content%}
+
+     <center>
+        <h1>Hello {{name}} Events for {{month}} {{year}} </h1>
+         As of {{time}}
+          <br/>
+         <!--used safe for filter's HTML-->
+         {{cal|safe}}
+          <br/>
+          Copyright (c) {{current_year}}
+
+      </center>
+
+{%endblock%}
+</body>
+</html>

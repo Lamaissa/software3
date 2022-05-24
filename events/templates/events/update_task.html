@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+ <head>
+    <meta charset="UTF-8">
+
+ </head>
+ <body>
+  {%extends 'events/base.html'%}
+  {% block content%}
+  <div class="container"><br>
+    <center><h3>Update Task</h3></center>
+    <br>
+    <form action=""method="post">
+        {%csrf_token%}
+        {{form.as_p}}<br>
+        <input type="submit" value="Update"class="btn btn-secondary">
+    </form>
+   </div>
+ {%endblock%}
+ </body>
+</html>

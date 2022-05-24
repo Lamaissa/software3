@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+
+</head>
+<body>
+{%extends 'events/base.html'%}
+{% block content%}
+<br>
+        <center><h2>Add Task</h2></center>
+         <br>
+         {% if submitted%}
+         Your Task Was Submitted
+         {%else%}
+           <form action="" method="POST">
+             {% csrf_token%}
+             {{form.as_p}}
+              <center><input type="submit" value="Save" class="btn btn-secondary"></center>
+           </form>
+         {%endif%}
+
+{%endblock%}
+</body>
+</html>

@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+
+</head>
+<body>
+{%extends 'events/base.html'%}
+{% block content%}
+
+  <center>
+      {% if searched%}
+         <h1>You Searched For {{searched}}</h1>
+      <br>
+         {%for task in tasks%}
+           <a href="{%url 'search-task' task.id %}">{{tasks}}</a>
+         {%endfor%}
+      {%else%}
+         <h1>Sorry,You Forget To Search For A Task</h1>
+      {%endif%}
+  </center>
+{%endblock%}
+</body>
+</html>
